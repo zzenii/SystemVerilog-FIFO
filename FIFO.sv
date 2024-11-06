@@ -6,15 +6,15 @@
 
 
 module FIFO #(
-				  parameter ADDR_WIDTH = 4,
-				  parameter DATA_WIDTH = 8
-				  )(
-					 input logic clk, reset,
-					 input logic read, write,
-					 input logic [DATA_WIDTH-1:0] inputBus,
-					output logic empty, full,
-					output logic [DATA_WIDTH-1:0] outputBus
-				   );
+	  parameter ADDR_WIDTH = 4,
+	  parameter DATA_WIDTH = 8
+	  )(
+		 input logic clk, reset,
+		 input logic read, write,
+		 input logic [DATA_WIDTH-1:0] inputBus,
+		output logic empty, full,
+		output logic [DATA_WIDTH-1:0] outputBus
+	   );
 	
 	// Temporary signals from control to data.
 	logic [ADDR_WIDTH-1:0] r_addr, w_addr;
@@ -23,12 +23,11 @@ module FIFO #(
 	// Instance of FIFO_Control that accepts read and write signals that determine FSM behaviour.
 	// FIFO status signals empty, full, wr_en, readAddr, writeAddr are ported to the memory.
 	FIFO_Control #(ADDR_WIDTH) FC (.clk, .reset, 
-									  .read, .write, 
-									  .wr_en,
-									  .empty, .full,
-									  .r_addr, .w_addr
-									 );
-
+				  .read, .write, 
+				  .wr_en,
+				  .empty, .full,
+				  .r_addr, .w_addr
+				 );
 	
 	// Instance of reg_file that accepts the input data, and control signals r_addr, w_addr, wr_en.
 	// data_out is ported to the output of the entity.
