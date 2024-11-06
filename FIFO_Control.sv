@@ -6,14 +6,14 @@
 */
 
 module FIFO_Control #(
-							 parameter 	depth = 4
-							 )(
-								input logic clk, reset,
-								input logic read, write,
-							  output logic wr_en,
-							  output logic empty, full,
-							  output logic [depth-1:0] r_addr, w_addr
-							  );
+		parameter depth = 4
+		)(
+		input logic clk, reset,
+		input logic read, write,
+		output logic wr_en,
+		output logic empty, full,
+		output logic [depth-1:0] r_addr, w_addr
+		);
 	
 	// Intermediate Logic.
 	logic [4:0] count, count_next; // Internal counter to record the number of elements in the FIFO
