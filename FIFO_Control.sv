@@ -26,7 +26,7 @@ module FIFO_Control #(
 	end
 	
 	// wr_en to memory
-	assign wr_en = write & ~full;
+	assign wr_en = write & (~full | read);
 	
 	// Establishing the next values to be taken by w_addr, r_addr, and count based on read and write.
 	// Values are read / written according to the present values of w_addr and r_addr. We need the desired
