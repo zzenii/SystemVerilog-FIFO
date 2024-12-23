@@ -1,7 +1,7 @@
 /*
-	FIFO brings the control circuitry of FIFO_Control and data circuitry of ram to complete the FIFO design.
-	It accepts 1-bit read and write signals (with associated desired functionality), and (DATA_WIDTH-1)-bit inputBus (the data to be written).
-	It outputs the 1-bit control signals empty and full, and (DATA_WIDTH-1)-bit outputBus (the data read).
+	FIFO brings the control circuitry of FIFO_Control and data circuitry of the memory to complete the FIFO design.
+	It accepts 1-bit read and write signals (with associated desired functionality), and (DATA_WIDTH-1)-bit data_in (the data to be written).
+	It outputs the 1-bit control signals empty and full, and (DATA_WIDTH-1)-bit data_out (the data read).
 */
 
 
